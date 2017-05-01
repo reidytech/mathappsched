@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('mathApp', ['ionic', 'mathApp.controllers', 'mathApp.services', 'ngAnimate', 'ui.rCalendar', 'jett.ionic.filter.bar', 'ion-gallery', 'jett.ionic.scroll.sista', 'ngIOS9UIWebViewPatch', 'ion-affix'])
+angular.module('mathApp', ['ionic', 'mathApp.controllers', 'mathApp.services', 'ngAnimate', 'ui.rCalendar', 'jett.ionic.filter.bar', 'ion-gallery', 'jett.ionic.scroll.sista', 'ngIOS9UIWebViewPatch', 'ion-affix', 'stateBackButtonIonic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -42,15 +42,36 @@ angular.module('mathApp', ['ionic', 'mathApp.controllers', 'mathApp.services', '
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+
+    .state('tabs', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
 
+     .state('tabs.home', {
+     url: '/home',
+      views: {
+        'tab-home': {
+         templateUrl: 'templates/tab-home.html',
+          controller: 'HomeCtrl'
+        }
+      }
+    })
+
+     .state('tabs.home.prevagenda', {
+     url: '/prevagenda',
+     views: {
+        'tab-home@tab': {
+         templateUrl: 'templates/tab-home-prevagenda.html',
+         controller: 'AgendaCtrl'
+        }
+      }
+    })
+
   // Each tab has its own nav history stack:
 
-  .state('tab.agenda', {
+  .state('tabs.agenda', {
     url: '/agenda',
     views: {
       'tab-agenda': {
@@ -60,7 +81,7 @@ angular.module('mathApp', ['ionic', 'mathApp.controllers', 'mathApp.services', '
     }
   })
 
-  .state('tab.calendar', {
+  .state('tabs.calendar', {
       url: '/calendar',
       views: {
         'tab-calendar': {
@@ -69,17 +90,8 @@ angular.module('mathApp', ['ionic', 'mathApp.controllers', 'mathApp.services', '
         }
       }
     })
-   // .state('tab.chat-detail', {
-     // url: '/chats/:chatId',
-      //views: {
-        //'tab-chats': {
-         // templateUrl: 'templates/chat-detail.html',
-         // controller: 'ChatDetailCtrl'
-        //}
-      //}
-    //})
-
-  .state('tab.calculator', {
+  
+  .state('tabs.calculator', {
     url: '/calculator',
     views: {
       'tab-calculator': {
@@ -90,6 +102,6 @@ angular.module('mathApp', ['ionic', 'mathApp.controllers', 'mathApp.services', '
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/agenda');
+  $urlRouterProvider.otherwise('/tab/home');
 
 });
