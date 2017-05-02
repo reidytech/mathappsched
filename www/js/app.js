@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('mathApp', ['ionic', 'mathApp.controllers', 'mathApp.services', 'ngAnimate', 'ui.rCalendar', 'jett.ionic.filter.bar', 'ion-gallery', 'jett.ionic.scroll.sista', 'ngIOS9UIWebViewPatch', 'ion-affix', 'stateBackButtonIonic'])
+angular.module('mathApp', ['ionic', 'ui.router', 'mathApp.controllers', 'mathApp.services', 'ngAnimate', 'ui.rCalendar', 'jett.ionic.filter.bar', 'ion-gallery', 'jett.ionic.scroll.sista', 'ngIOS9UIWebViewPatch', 'ion-affix', 'stateBackButtonIonic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -43,65 +43,65 @@ angular.module('mathApp', ['ionic', 'mathApp.controllers', 'mathApp.services', '
 
   // setup an abstract state for the tabs directive
 
-    .state('tabs', {
-    url: '/tab',
+    .state('app', {
+    url: '/app',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'templates/app.html'
   })
 
-     .state('tabs.home', {
+     .state('app.home', {
      url: '/home',
       views: {
-        'tab-home': {
-         templateUrl: 'templates/tab-home.html',
+        'app-home': {
+         templateUrl: 'templates/app-home.html',
           controller: 'HomeCtrl'
-        }
-      }
-    })
-
-     .state('tabs.home.prevagenda', {
-     url: '/prevagenda',
-     views: {
-        'tab-home@tab': {
-         templateUrl: 'templates/tab-home-prevagenda.html',
-         controller: 'AgendaCtrl'
         }
       }
     })
 
   // Each tab has its own nav history stack:
 
-  .state('tabs.agenda', {
+  .state('app.agenda', {
     url: '/agenda',
     views: {
-      'tab-agenda': {
-        templateUrl: 'templates/tab-agenda.html',
+      'app-agenda': {
+        templateUrl: 'templates/app-agenda.html',
         controller: 'AgendaCtrl'
       }
     }
   })
 
-  .state('tabs.calendar', {
+       .state('app.pastagenda', {
+     url: '/pastagenda',
+     views: {
+        'app-pastagenda': {
+         templateUrl: 'templates/app-pastagenda.html',
+         controller: 'AgendaCtrl'
+        }
+      }
+    })
+
+  .state('app.calendar', {
       url: '/calendar',
       views: {
-        'tab-calendar': {
-          templateUrl: 'templates/tab-calendar.html',
+        'app-calendar': {
+          templateUrl: 'templates/app-calendar.html',
           controller: 'CalendarCtrl'
         }
       }
     })
   
-  .state('tabs.calculator', {
+  .state('app.calculator', {
     url: '/calculator',
     views: {
-      'tab-calculator': {
-        templateUrl: 'templates/tab-calculator.html',
+      'app-calculator': {
+        templateUrl: 'templates/app-calculator.html',
         controller: 'CalculatorCtrl'
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home');
+  $urlRouterProvider.otherwise('/app/home');
 
 });

@@ -145,8 +145,10 @@ angular.module('mathApp.controllers', [])
         
 })
 
-.controller('HomeCtrl', function() {
- // $scope.chat = Chats.get($stateParams.chatId); $scope, $stateParams, Chats
+.controller('HomeCtrl', function($scope, $state) {
+$scope.route = function(){
+    $state.go('app.pastagenda');
+}
 })
 
 .controller('CalculatorCtrl', function($scope, $window, $timeout) {
