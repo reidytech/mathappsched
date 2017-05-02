@@ -7,6 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('mathApp', ['ionic', 'ui.router', 'mathApp.controllers', 'mathApp.services', 'ngAnimate', 'ui.rCalendar', 'jett.ionic.filter.bar', 'ion-gallery', 'jett.ionic.scroll.sista', 'ngIOS9UIWebViewPatch', 'ion-affix', 'stateBackButtonIonic'])
 
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
