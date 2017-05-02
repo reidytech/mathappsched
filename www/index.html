@@ -28,8 +28,8 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/ionic/js/ionic-angular.min.js"></script>
-     <script src="js/calendar-tpls.js"></script>
+    <script src="js/calendar-tpls.js"></script>
+  
 
 
 
@@ -37,6 +37,7 @@
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
+    <script src="js/stateBackButtonIonic.js"></script>
     <script src="https://www.desmos.com/api/v0.8/calculator.js?apiKey=cb5c3a45b4d24f77a59db3e74a9114ca"> </script>
     <script src="lib/ios9patch/script.js"></script>
     <script src="lib/ionicfilterbar/dist/ionic.filter.bar.js"></script>
@@ -49,15 +50,12 @@
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-    <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
-    </ion-nav-bar>
+<ion-nav-view></ion-nav-view>
     <!--
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also
       have templates inline in this html file if you'd like).
     -->
-    <ion-nav-view></ion-nav-view>
+    
   </body>
 </html>

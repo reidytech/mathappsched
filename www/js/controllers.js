@@ -72,7 +72,7 @@ angular.module('mathApp.controllers', [])
             dayEnd[1].getFullYear(); dayEnd[1].getMonth(); dayEnd[1].setDate(25); dayEnd[1].setHours(10); dayEnd[1].setMinutes(1);
             dayStart[2].getFullYear(); dayStart[2].getMonth(); dayStart[2].setDate(26); dayStart[2].setHours(12); dayStart[2].setMinutes(30);
             dayEnd[2].getFullYear(); dayEnd[2].getMonth(); dayEnd[2].setDate(26); dayEnd[2].setHours(1); dayEnd[2].setMinutes(30);
-            dayStart[3].getFullYear(); dayStart[3].getMonth(); dayStart[3].setDate(27); dayStart[3].setHours(9); dayStart[3].setMinutes(0);
+            dayStart[3].getFullYear(); dayStart[3].getMonth();dayStart[3].setDate(27); dayStart[3].setHours(9); dayStart[3].setMinutes(0);
             dayEnd[3].getFullYear(); dayEnd[3].getMonth(); dayEnd[3].setDate(27); dayEnd[3].setHours(10); dayEnd[3].setMinutes(1);
             dayStart[4].getFullYear(); dayStart[4].getMonth(); dayStart[4].setDate(28); dayStart[4].setHours(9); dayStart[4].setMinutes(0);
             dayEnd[4].getFullYear(); dayEnd[4].getMonth(); dayEnd[4].setDate(28); dayEnd[4].setHours(10); dayEnd[4].setMinutes(0);
@@ -145,9 +145,11 @@ angular.module('mathApp.controllers', [])
         
 })
 
-//.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
- // $scope.chat = Chats.get($stateParams.chatId);
-//})
+.controller('HomeCtrl', function($scope, $state) {
+$scope.route = function(){
+    $state.go('app.pastagenda');
+}
+})
 
 .controller('CalculatorCtrl', function($scope, $window, $timeout) {
     $scope.calculateDimensions = function(gesture) {
