@@ -2,7 +2,7 @@
 <ion-view view-title="Agenda Week of 4/24">
   <ion-content delegate-handle="agendaScrollDelegate">
 
-    <div class="list">
+    <ion-list>
       <div class="item item-divider" ion-affix><i class="icon ion-calendar"></i> Monday</div>
       <div class="item item-thumbnail-left item-text-wrap">
           <img src="img/inverse.png"> 
@@ -10,9 +10,9 @@
           <p>Review of Inverse Functions, which were covered before break.</p>
           <p> <img src="img/3.png" style="width: 4vw; height: 7.5vw;"> </p>
       </div>
- </div>
+    </ion-list>
 
-<div class="list">
+<ion-list>
       <div class="item item-divider" ion-affix><i class="icon ion-calendar"></i> Tuesday</div>
         <div class="item item-thumbnail-left item-text-wrap">
             <img src="img/domran.png">
@@ -28,9 +28,9 @@
           <p> <img src="img/6.png" style="width: 4vw; height: 7.5vw;"> </p>
                   </div>
 
- </div>
+</ion-list>
 
-<div class="list">
+<ion-list>
       <div class="item item-divider" ion-affix><i class="icon ion-calendar"></i> Wednesday</div>
       <div class="item item-thumbnail-left item-text-wrap">
             <img src="img/domran.png">
@@ -39,11 +39,11 @@
             <p> <img src="img/6.png" style="width: 4vw; height: 7.5vw;"> </p>
         </div>
 
- </div>
+</ion-list>
 
 
 
-<div class="list">
+<ion-list>
       <div class="item item-divider" ion-affix><i class="icon ion-calendar"></i> Thursday</div>
         <div class="item item-thumbnail-left item-text-wrap">
             <img src="img/inverse.png">
@@ -51,11 +51,11 @@
             <p>Quick quiz (possible scan) on inverse functions, domain, and range, to end unit. </p>
            <img src="img/3.png" style="width: 4vw; height: 7.5vw;"> <img src="img/6.png" style="width: 4vw; height: 7.5vw;"> 
         </div>
-         </div>
+</ion-list>
 
 
 
-  <div class="list">
+  <ion-list>
       <div class="item item-divider" ion-affix><i class="icon ion-calendar"></i> Friday</div>
         <div class="item item-thumbnail-left item-text-wrap">
             <img src="img/hyperbola.gif">
@@ -64,7 +64,18 @@
             <img src="img/3.png" style="width: 4vw; height: 7.5vw;"> <img src="img/6.png" style="width: 4vw; height: 7.5vw;"> 
         </div>
         </div>
-    </div>
+  </ion-list>
+<!--
+    <ion-list>
+        <div>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="agenda in agendas" type="item-text-wrap" href="#/app/agendas/{{agenda.id}}">
+        <img ng-src="img/practice.png">
+        <h2>{{agenda.name}}</h2>
+        <p>{{agenda.lastText}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+-->
   </ion-content>
 </ion-view>
 
