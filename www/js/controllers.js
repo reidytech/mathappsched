@@ -1,8 +1,11 @@
 angular.module('mathApp.controllers', [])
 
-.controller('AgendaCtrl', function($scope) {
+.controller('AgendaCtrl', function($scope, AgendaIDs) {
    $scope.navTitle='<img class="title-image" style="height: 27px;margin-top: 8px;" src="img/agenda.png" />';
-
+   $scope.agendas = AgendaIDs.all();
+   $scope.remove = function(agenda) {
+   AgendaIDs.remove(agenda);
+  };
 })
 
 .controller('CalendarCtrl', function($scope, $templateCache) {
@@ -67,7 +70,7 @@ angular.module('mathApp.controllers', [])
 
 
             dayStart[0].getFullYear(); dayStart[0].getMonth(); dayStart[0].setDate(24); dayStart[0].setHours(10); dayStart[0].setMinutes(5);
-            dayEnd[0].getFullYear(); dayEnd[0].getMonth(); dayEnd[0].setDate(24); dayEnd[0].setHours(11); dayEnd[0].setMinutes(0);
+            dayEnd[0].getFullYear(); dayEnd[0].getMonth(); dayEnd[0].setDate(24); dayEnd[0].setHours(11); dayEnd[0].setMinutes(59);
             dayStart[1].getFullYear(); dayStart[1].getMonth(); dayStart[1].setDate(25); dayStart[1].setHours(9); dayStart[1].setMinutes(1);
             dayEnd[1].getFullYear(); dayEnd[1].getMonth(); dayEnd[1].setDate(25); dayEnd[1].setHours(10); dayEnd[1].setMinutes(1);
             dayStart[2].getFullYear(); dayStart[2].getMonth(); dayStart[2].setDate(26); dayStart[2].setHours(12); dayStart[2].setMinutes(30);
@@ -147,8 +150,13 @@ angular.module('mathApp.controllers', [])
 
 .controller('HomeCtrl', function($scope, $state) {
 $scope.route = function(){
-    $state.go('app.pastagenda');
+    $state.go('app.agendas');
 }
+
+$scope.currentroute = function(){
+    $state.go('app.agenda');
+}
+
 })
 
 .controller('CalculatorCtrl', function($scope, $window, $timeout) {
@@ -156,18 +164,25 @@ $scope.route = function(){
     $scope.dev_width = $window.innerWidth;
     $scope.dev_height = $window.innerHeight;
   }
+  $scope.loaded = false;
   angular.element($window).bind('resize', function(){
     $scope.$apply(function() {
       $scope.calculateDimensions();  
     })       
   });
-    
   $scope.calculateDimensions();  
   $scope.getCal = $timeout(function(){ var elt = document.getElementById('calculator');
-    var calculator = Desmos.GraphingCalculator(elt);
-    calculator.setExpression({id:'graph1', latex:'y=x^2'});
+  var calculator = Desmos.GraphingCalculator(elt);
+  calculator.setExpression({id:'graph1', latex:'y=x^2'});
    }, 5000);
+    $scope.$watch('$viewContentLoaded', function(event) {
+      $timeout(function() {
+        console.log("Loaded");
+        $scope.loaded = true;
+      },5000);
+    });
+})
 
-  
-
+.controller('AgendaIDCtrl', function($scope, $stateParams, AgendaIDs){
+$scope.agenda = AgendaIDs.get($stateParams.agendaId);
 });

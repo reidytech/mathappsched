@@ -80,7 +80,7 @@
 
 .event-detail {
     cursor: pointer;
-    white-space: nowrap;
+    white-space: pre-wrap;
     text-overflow: ellipsis;
 }
 
@@ -105,6 +105,7 @@
     padding: 2px;
     cursor: pointer;
     z-index: 10000;
+
 }
 
 .calendar-event-inner {
@@ -114,12 +115,12 @@
     height: 100%;
     width: 100%;
     padding: 2px;
-    line-height: 15px;
+    line-height: 20px;
 }
 
 .calendar-cell {
     padding: 0 !important;
-    height: 37px;
+    height: .03vw;
 }
 
 .monthview-primary-with-event {
@@ -171,6 +172,7 @@
     margin-left: 50px;
     overflow: hidden;
     height: 51px;
+    background-color: lightgrey;
 }
 
 .weekview-allday-content-table, .dayview-allday-content-table {

@@ -20,11 +20,16 @@
        <!-- compiled css output -->
     <link href="css/ionic.app.min.css" rel="stylesheet">
     <link href="css/calendar.css" rel="stylesheet">
+    <link href="css/spinner.css" rel="stylesheet">
   
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
+        <!--[if IE]>
+      <link rel="stylesheet" type="text/css" href="css/ionic.css" />
+
+      <![endif]-->
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -39,7 +44,7 @@
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
     <script src="js/stateBackButtonIonic.js"></script>
-    <script src="https://www.desmos.com/api/v0.8/calculator.js?apiKey=cb5c3a45b4d24f77a59db3e74a9114ca"> </script>
+    <script src="js/desmos.js"> </script>
     <script src="lib/ios9patch/script.js"></script>
     <script src="lib/ionicfilterbar/dist/ionic.filter.bar.js"></script>
     <script src="lib/ionicgallery/dist/ion-gallery.js"></script>
@@ -51,6 +56,11 @@
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
+<ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
 <ion-nav-view></ion-nav-view>
     <!--
       The views will be rendered in the <ion-nav-view> directive below

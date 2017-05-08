@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('mathApp', ['ionic', 'ui.router', 'mathApp.controllers', 'mathApp.services', 'ngAnimate', 'ui.rCalendar', 'jett.ionic.filter.bar', 'ion-gallery', 'jett.ionic.scroll.sista', 'ngIOS9UIWebViewPatch', 'ion-affix', 'stateBackButtonIonic'])
+angular.module('mathApp', ['ionic', 'ui.router', 'mathApp.controllers', 'mathApp.services', 'ngAnimate', 'ui.rCalendar', 'jett.ionic.filter.bar', 'ion-gallery', 'jett.ionic.scroll.sista', 'ngIOS9UIWebViewPatch', 'ion-affix'])
 
 
 .run(function($ionicPlatform) {
@@ -25,7 +25,7 @@ angular.module('mathApp', ['ionic', 'ui.router', 'mathApp.controllers', 'mathApp
 })
 
 .config(function($stateProvider, $urlRouterProvider, $ionicFilterBarConfigProvider, $ionicConfigProvider) {
-
+/*
         $ionicFilterBarConfigProvider.theme('positive');
         $ionicFilterBarConfigProvider.clear('ion-close');
         $ionicFilterBarConfigProvider.search('ion-search');
@@ -35,7 +35,7 @@ angular.module('mathApp', ['ionic', 'ui.router', 'mathApp.controllers', 'mathApp
 
         $ionicConfigProvider.backButton.previousTitleText(false);
         $ionicConfigProvider.backButton.text('');
-
+*/
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -72,12 +72,22 @@ angular.module('mathApp', ['ionic', 'ui.router', 'mathApp.controllers', 'mathApp
     }
   })
 
-       .state('app.pastagenda', {
-     url: '/pastagenda',
+       .state('app.agendas', {
+     url: '/agendas',
      views: {
-        'app-pastagenda': {
-         templateUrl: 'templates/app-pastagenda.html',
+        'app-agendas': {
+         templateUrl: 'templates/app-agendas.html',
          controller: 'AgendaCtrl'
+        }
+      }
+    })
+
+    .state('app.agenda-detail', {
+      url: '/agendas/:agendaId',
+      views: {
+        'app-agendas' : {
+          templateUrl: 'templates/agenda-detail.html',
+          controller: 'AgendaIDCtrl'
         }
       }
     })
